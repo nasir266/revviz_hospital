@@ -1,0 +1,536 @@
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <%- include('includes/page_head.ejs') %>
+</head>
+<body>
+<aside class="sidebar">
+    <%- include('includes/navbar.ejs') %>
+</aside>
+
+<main class="dashboard-main">
+    <div class="navbar-header">
+        <%- include('includes/header.ejs') %>
+    </div>
+    <div class="dashboard-main-body">
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+            <h6 class="fw-semibold mb-0">Admin Dashboard</h6>
+            <ul class="d-flex align-items-center gap-2">
+                <li class="fw-medium">
+                    <a href="index.html" class="d-flex align-items-center gap-1 hover-text-primary">
+                        <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                        Admin Dashboard
+                    </a>
+                </li>
+                <li>-</li>
+                <li class="fw-medium">Medical</li>
+            </ul>
+        </div>
+
+        <div class="row gy-4">
+            <div class="col-xxxl-9">
+                <div class="row gy-4">
+                    <div class="col-xxl-3 col-xl-4 col-sm-6">
+                        <div class="card p-3 shadow-2 radius-8 h-100 bg-gradient-end-6">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-wrap align-items-center justify-content-between gap-1 mb-8">
+
+                                    <div class="d-flex align-items-center gap-2">
+                        <span class="mb-0 w-48-px h-48-px bg-cyan-100 text-cyan-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0">
+                        <i class="ri-group-fill"></i>
+                        </span>
+                                        <div>
+                                            <h6 class="fw-semibold mb-2">000</h6>
+                                            <span class="fw-medium text-secondary-light text-sm">Doctors</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm mb-0"> <span class="text-cyan-600">0</span> Doctors joined this week</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3 col-xl-4 col-sm-6">
+                        <div class="card p-3 shadow-2 radius-8 h-100 bg-gradient-end-4">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-wrap align-items-center justify-content-between gap-1 mb-8">
+
+                                    <div class="d-flex align-items-center gap-2">
+                        <span class="mb-0 w-48-px h-48-px bg-lilac-100 text-lilac-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0">
+                        <i class="ri-award-fill"></i>
+                        </span>
+                                        <div>
+                                            <h6 class="fw-semibold mb-2">000</h6>
+                                            <span class="fw-medium text-secondary-light text-sm">Staffs</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm mb-0"> <span class="text-lilac-600">0</span> Staffs on vacation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3 col-xl-4 col-sm-6">
+                        <div class="card p-3 shadow-2 radius-8 h-100 bg-gradient-end-1">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-wrap align-items-center justify-content-between gap-1 mb-8">
+
+                                    <div class="d-flex align-items-center gap-2">
+                        <span class="mb-0 w-48-px h-48-px bg-primary-100 text-primary-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0">
+                        <i class="ri-group-fill"></i>
+                        </span>
+                                        <div>
+                                            <h6 class="fw-semibold mb-2">000</h6>
+                                            <span class="fw-medium text-secondary-light text-sm">Patients</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm mb-0"> <span class="text-primary-600">0</span>New patients admitted</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-3 col-xl-4 col-sm-6">
+                        <div class="card p-3 shadow-2 radius-8 h-100 bg-gradient-end-1">
+                            <div class="card-body p-0">
+                                <div class="d-flex flex-wrap align-items-center justify-content-between gap-1 mb-8">
+
+                                    <div class="d-flex align-items-center gap-2">
+                        <span class="mb-0 w-48-px h-48-px bg-success-100 text-success-600 flex-shrink-0 text-white d-flex justify-content-center align-items-center rounded-circle h6 mb-0">
+                        <i class="ri-wallet-3-fill"></i>
+                        </span>
+                                        <div>
+                                            <h6 class="fw-semibold mb-2">₹000</h6>
+                                            <span class="fw-medium text-secondary-light text-sm">Pharmacies </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm mb-0"> <span class="text-success-600">0 </span> Medicine on reserve</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Earning Statistic -->
+                    <div class="col-xxl-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                                    <h6 class="mb-2 fw-bold text-lg mb-0">Earning Statistic</h6>
+                                    <select class="form-select form-select-sm w-auto bg-base border-0 text-secondary-light">
+                                        <option>This Month</option>
+                                        <option>This Week</option>
+                                        <option>This Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body p-24">
+                                <ul class="d-flex flex-wrap align-items-center justify-content-center my-3 gap-3">
+                                    <li class="d-flex align-items-center gap-2">
+                                        <span class="w-12-px h-8-px rounded-pill bg-primary-600"></span>
+                                        <span class="text-secondary-light text-sm fw-semibold">New Patient:
+                                    <span class="text-primary-light fw-bold">000</span>
+                                </span>
+                                    </li>
+                                    <li class="d-flex align-items-center gap-2">
+                                        <span class="w-12-px h-8-px rounded-pill bg-warning-600"></span>
+                                        <span class="text-secondary-light text-sm fw-semibold">Old Patient:
+                                    <span class="text-primary-light fw-bold">  000</span>
+                                </span>
+                                    </li>
+                                </ul>
+                                <div id="enrollmentChart" class="apexcharts-tooltip-style-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Earning Statistic -->
+
+                    <!-- Patient Visited by Depertment -->
+
+                    <!-- Patient Visited by Depertment -->
+
+                    <!-- Patient Visit By Gender -->
+                    <div class="col-xxl-6">
+                        <div class="card h-100">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                                    <h6 class="mb-2 fw-bold text-lg mb-0">Patient Visit By Gender</h6>
+                                    <select class="form-select form-select-sm w-auto bg-base border-0 text-secondary-light">
+                                        <option>This Month</option>
+                                        <option>This Week</option>
+                                        <option>This Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body p-24">
+                                <ul class="d-flex flex-wrap align-items-center justify-content-center my-3 gap-3">
+                                    <li class="d-flex align-items-center gap-2">
+                                        <span class="w-12-px h-8-px rounded-pill bg-warning-600"></span>
+                                        <span class="text-secondary-light text-sm fw-semibold">Male:
+                                    <span class="text-primary-light fw-bold">000</span>
+                                </span>
+                                    </li>
+                                    <li class="d-flex align-items-center gap-2">
+                                        <span class="w-12-px h-8-px rounded-pill bg-success-600"></span>
+                                        <span class="text-secondary-light text-sm fw-semibold">Female:
+                                    <span class="text-primary-light fw-bold"> 000</span>
+                                </span>
+                                    </li>
+                                </ul>
+                                <div id="paymentStatusChart" class="margin-16-minus y-value-left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Patient Visit By Gender -->
+
+                    <!-- Top performance Start -->
+                    <div class="col-xxl-4">
+                        <div class="card">
+                            <div class="card-header border-bottom">
+                                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                                    <h6 class="mb-2 fw-bold text-lg mb-0">Doctors List</h6>
+                                    <a href="javascript:void(0)" class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
+                                        View All
+                                        <iconify-icon icon="solar:alt-arrow-right-linear" class="icon"></iconify-icon>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex flex-column gap-24">
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/images/home-eight/doctor-img1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0">Dr. Ashwin</h6>
+                                                <span class="text-sm text-secondary-light fw-medium">Cardiology</span>
+                                            </div>
+                                        </div>
+                                        <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Available</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/images/home-eight/doctor-img1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0">Dr. Ashwin</h6>
+                                                <span class="text-sm text-secondary-light fw-medium">Cardiology</span>
+                                            </div>
+                                        </div>
+                                        <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Available</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/images/home-eight/doctor-img1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0">Dr. Ashwin</h6>
+                                                <span class="text-sm text-secondary-light fw-medium">Cardiology</span>
+                                            </div>
+                                        </div>
+                                        <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Available</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/images/home-eight/doctor-img1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0">Dr. Ashwin</h6>
+                                                <span class="text-sm text-secondary-light fw-medium">Cardiology</span>
+                                            </div>
+                                        </div>
+                                        <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Available</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/images/home-eight/doctor-img1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0">Dr. Ashwin</h6>
+                                                <span class="text-sm text-secondary-light fw-medium">Cardiology</span>
+                                            </div>
+                                        </div>
+                                        <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Available</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center">
+                                            <img src="assets/images/home-eight/doctor-img1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0">Dr. Ashwin</h6>
+                                                <span class="text-sm text-secondary-light fw-medium">Cardiology</span>
+                                            </div>
+                                        </div>
+                                        <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Available</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Top performance End -->
+
+                    <div class="col-xxl-8">
+                        <div class="card h-100">
+                            <div class="card-header border-bottom bg-base py-16 px-24 d-flex align-items-center justify-content-between">
+                                <h6 class="text-lg fw-semibold mb-0">Latest Appointments</h6>
+                                <a href="javascript:void(0)" class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
+                                    View All
+                                    <iconify-icon icon="solar:alt-arrow-right-linear" class="icon"></iconify-icon>
+                                </a>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive scroll-sm">
+                                    <table class="table bordered-table mb-0 rounded-0 border-0">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col" class="bg-transparent rounded-0">Name</th>
+                                            <th scope="col" class="bg-transparent rounded-0">ID</th>
+                                            <th scope="col" class="bg-transparent rounded-0">Date</th>
+                                            <th scope="col" class="bg-transparent rounded-0">Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>General Checkup</td>
+                                            <td>#0000</td>
+                                            <td>27 Mar 2025</td>
+                                            <td> <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Completed</span> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>General Checkup</td>
+                                            <td>#0000</td>
+                                            <td>27 Mar 2025</td>
+                                            <td> <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Completed</span> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>General Checkup</td>
+                                            <td>#0000</td>
+                                            <td>27 Mar 2025</td>
+                                            <td> <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Completed</span> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>General Checkup</td>
+                                            <td>#0000</td>
+                                            <td>27 Mar 2025</td>
+                                            <td> <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Completed</span> </td>
+                                        </tr>
+                                        <tr>
+                                            <td>General Checkup</td>
+                                            <td>#0000</td>
+                                            <td>27 Mar 2025</td>
+                                            <td> <span class="bg-success-focus text-success-main px-10 py-4 radius-8 fw-medium text-sm">Completed</span> </td>
+                                        </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Latest Performance End -->
+                </div>
+            </div>
+
+            <div class="col-xxxl-3">
+                <div class="row gy-4">
+                    <div class="col-xxl-12 col-xl-6">
+                        <div class="card h-100 radius-8 border-0">
+                            <div class="card-header border-bottom d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                                <h6 class="mb-2 fw-bold text-lg">Total Income</h6>
+                                <div class="">
+                                    <select class="form-select form-select-sm w-auto bg-base border-0 text-secondary-light">
+                                        <option>This Month</option>
+                                        <option>This Week</option>
+                                        <option>This Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body p-24">
+
+                                <div class="position-relative">
+                                    <div id="statisticsDonutChart" class="mt-36 flex-grow-1 apexcharts-tooltip-z-none title-style circle-none"></div>
+                                    <div class="text-center position-absolute top-50 start-50 translate-middle">
+                                        <span class="text-secondary-light">Income</span>
+                                        <h6 class="">₹000</h6>
+                                    </div>
+                                </div>
+
+                                <ul class="row gy-4 mt-3">
+                                    <li class="col-6 d-flex flex-column align-items-center">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="w-12-px h-8-px rounded-pill bg-warning-600"></span>
+                                            <span class="text-secondary-light text-sm fw-normal">Net Income</span>
+                                        </div>
+                                        <h6 class="text-primary-light fw-bold mb-0">₹000</h6>
+                                    </li>
+                                    <li class="col-6 d-flex flex-column align-items-center">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <span class="w-12-px h-8-px rounded-pill bg-success-600"></span>
+                                            <span class="text-secondary-light text-sm fw-normal">Commission </span>
+                                        </div>
+                                        <h6 class="text-primary-light fw-bold mb-0">₹000</h6>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xxl-12 col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
+                                    <h6 class="mb-2 fw-bold text-lg mb-0">Health Reports Document</h6>
+                                    <a href="javascript:void(0)" class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
+                                        View All
+                                        <iconify-icon icon="solar:alt-arrow-right-linear" class="icon"></iconify-icon>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex flex-column gap-24">
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center gap-12">
+                                            <div class="flex-shrink-0">
+                                                <img src="assets/images/home-eight/icon-pdf.png" alt="" class="">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0 fw-normal">Checkup Result.pdf</h6>
+                                                <span class="text-xs text-secondary-light fw-normal">2.5mb</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-align gap-12">
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-danger-100 text-danger-600 bg-hover-danger-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-delete-bin-5-line"></i>
+                                            </button>
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-success-100 text-success-600 bg-hover-success-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-download-2-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center gap-12">
+                                            <div class="flex-shrink-0">
+                                                <img src="assets/images/home-eight/icon-pdf.png" alt="" class="">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0 fw-normal">Checkup Result.pdf</h6>
+                                                <span class="text-xs text-secondary-light fw-normal">2.5mb</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-align gap-12">
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-danger-100 text-danger-600 bg-hover-danger-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-delete-bin-5-line"></i>
+                                            </button>
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-success-100 text-success-600 bg-hover-success-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-download-2-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center gap-12">
+                                            <div class="flex-shrink-0">
+                                                <img src="assets/images/home-eight/icon-pdf.png" alt="" class="">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0 fw-normal">Checkup Result.pdf</h6>
+                                                <span class="text-xs text-secondary-light fw-normal">2.5mb</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-align gap-12">
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-danger-100 text-danger-600 bg-hover-danger-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-delete-bin-5-line"></i>
+                                            </button>
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-success-100 text-success-600 bg-hover-success-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-download-2-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center gap-12">
+                                            <div class="flex-shrink-0">
+                                                <img src="assets/images/home-eight/icon-pdf.png" alt="" class="">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0 fw-normal">Checkup Result.pdf</h6>
+                                                <span class="text-xs text-secondary-light fw-normal">2.5mb</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-align gap-12">
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-danger-100 text-danger-600 bg-hover-danger-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-delete-bin-5-line"></i>
+                                            </button>
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-success-100 text-success-600 bg-hover-success-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-download-2-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center gap-12">
+                                            <div class="flex-shrink-0">
+                                                <img src="assets/images/home-eight/icon-pdf.png" alt="" class="">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0 fw-normal">Checkup Result.pdf</h6>
+                                                <span class="text-xs text-secondary-light fw-normal">2.5mb</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-align gap-12">
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-danger-100 text-danger-600 bg-hover-danger-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-delete-bin-5-line"></i>
+                                            </button>
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-success-100 text-success-600 bg-hover-success-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-download-2-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center gap-12">
+                                            <div class="flex-shrink-0">
+                                                <img src="assets/images/home-eight/icon-pdf.png" alt="" class="">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0 fw-normal">Checkup Result.pdf</h6>
+                                                <span class="text-xs text-secondary-light fw-normal">2.5mb</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-align gap-12">
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-danger-100 text-danger-600 bg-hover-danger-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-delete-bin-5-line"></i>
+                                            </button>
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-success-100 text-success-600 bg-hover-success-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-download-2-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between gap-3">
+                                        <div class="d-flex align-items-center gap-12">
+                                            <div class="flex-shrink-0">
+                                                <img src="assets/images/home-eight/icon-pdf.png" alt="" class="">
+                                            </div>
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0 fw-normal">Checkup Result.pdf</h6>
+                                                <span class="text-xs text-secondary-light fw-normal">2.5mb</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-align gap-12">
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-danger-100 text-danger-600 bg-hover-danger-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-delete-bin-5-line"></i>
+                                            </button>
+                                            <button type="button" class="w-32-px h-32-px d-inline-flex justify-content-center align-items-center bg-success-100 text-success-600 bg-hover-success-600 text-hover-white text-md rounded-circle">
+                                                <i class="ri-download-2-fill"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('includes/footer.ejs')%>
+</main>
+
+
+<%- include('includes/script.ejs')%>
+</body>
+</html>
