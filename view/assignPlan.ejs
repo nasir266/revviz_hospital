@@ -1,0 +1,85 @@
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <%- include('includes/page_head.ejs')%>
+</head>
+<body>
+<aside class="sidebar">
+    <%- include('includes/navbar.ejs')%>
+</aside>
+
+<main class="dashboard-main">
+    <div class="navbar-header">
+        <%- include('includes/header.ejs')%>
+    </div>
+
+    <div class="dashboard-main-body">
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+            <h6 class="fw-semibold mb-0">Dashboard</h6>
+            <ul class="d-flex align-items-center gap-2">
+                <li class="fw-medium">
+                    <a href="" class="d-flex align-items-center gap-1 hover-text-primary">
+                        <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                        Dashboard
+                    </a>
+                </li>
+                <li>-</li>
+                <li class="fw-medium">Plan</li>
+            </ul>
+        </div>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Plan</h5>
+                    </div>
+                    <div class="card-body">
+                        <form class="row gy-3 needs-validation" method="post" action="addPlanForm" novalidate>
+
+                            <div class="col-md-12">
+                                <% if (message) { %>
+                                    <div class="alert alert-success">
+                                        <%= message %>
+                                    </div>
+
+                                <% } %>
+                                <label for="dia_name" class="form-label">Plan Name</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Plan Name" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="dia_name" class="form-label">No. Of Days</label>
+                                <input type="number" name="days" id="days" class="form-control" placeholder="Days" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="dia_name" class="form-label">Price</label>
+                                <input type="number" name="price" id="price" class="form-control" placeholder="price" required>
+                            </div>
+                            <!--<div class="col-md-12">
+                                <label for="dia_select" class="form-label">Select Diagnosis</label>
+                                <select id="dia_select" class="form-control">
+                                    <option>Select Diagnosis</option>
+                                </select>
+                                
+                            </div>-->
+                            
+                            <div class="col-12">
+                                <button class="btn btn-primary-600" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <%- include('includes/footer.ejs')%>
+</main>
+<%- include('includes/script.ejs')%>
+
+</body>
+</html>
