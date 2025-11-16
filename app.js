@@ -1,4 +1,4 @@
-/*
+
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from "url";
@@ -14,7 +14,7 @@ import {
     addOrgForm,
     addOrgPage,
     addPlan,
-    addPlanForm, assignPlanForm, AssignPlanPage, getActiveUsers,
+    addPlanForm, addUserPlan, assignPlanForm, AssignPlanPage, deleteOrg, getActiveUsers,
     getAllPlans, getNewUsers, getUnActiveUsers
 } from "./controller/organizationController.js";
 import {getLogin, login, logout} from "./controller/authController.js";
@@ -87,56 +87,58 @@ app.get('/h_index', isAuthenticated, h_index)
 app.get("/login",  getLogin);
 app.post("/login", login);
 app.get("/logout", logout);
-/!*logout*!/
 
-/!*plans*!/
+
+/*plans*/
 app.get('/addPlan', isAuthenticated, addPlan)
 app.post('/addPlanForm', isAuthenticated, addPlanForm)
 app.get('/allPlans', isAuthenticated, getAllPlans)
 app.get("/assignPlan", isAuthenticated, AssignPlanPage);
 app.post("/assignPlanForm", isAuthenticated, assignPlanForm);
 
-/!*organization*!/
+/*organization*/
 app.get('/add_organization', isAuthenticated, addOrgPage)
 app.post("/addOrgForm", upload.single("logo"), addOrgForm);
 app.get("/allOrganization", isAuthenticated, getNewUsers);
 app.get("/activeOrganization", isAuthenticated, getActiveUsers);
 app.get("/unActiveOrganization", isAuthenticated, getUnActiveUsers);
+app.get('/organization/delete/:id', isAuthenticated, deleteOrg);
+app.post('/user/plan/add', isAuthenticated, addUserPlan);
 //app.post('/addOrgForm', addOrgForm)
 
-/!*symptoms*!/
+/*symptoms*/
 app.get('/addSymptoms', isAuthenticated,  addSymptomsPage)
 app.post('/addSymptoms', addSymptomsForm)
 app.get('/DeleteSymptom/:id', isAuthenticated, DeleteSymptom);
 app.post('/symptom/update/:id', isAuthenticated, updateSymptom);
-/!*daignosis*!/
+/*daignosis*/
 app.get('/addDiagnosis', isAuthenticated,  addDiagnosisPage)
 app.post('/addDiagnosis', addDiagnosisForm)
 app.get('/DeleteDiagnosis/:id', isAuthenticated, DeleteDiagnosis);
 app.post('/diagnosis/update/:id', isAuthenticated, updateDiagnosis);
-/!*speciality*!/
+/*speciality*/
 app.get('/addSpeciality', isAuthenticated,  addSpecialityPage)
 app.post('/addSpeciality', addSpecialityForm)
 app.get('/DeleteSpeciality/:id', isAuthenticated, DeleteSpeciality);
 app.post('/speciality/update/:id', isAuthenticated, updateSpeciality);
-/!*userType*!/
+/*userType*/
 app.get('/userType', isAuthenticated,  userTypePage)
 app.post('/userType', userTypeForm)
 app.get('/DeleteUserType/:id', isAuthenticated, DeleteUserType);
 app.post('/userType/update/:id', isAuthenticated, updateUserType);
-/!*User Module*!/
+/*User Module*/
 app.get('/addUser', isAuthenticated, addUserPage);
 app.post('/user/add', addUserForm);
 app.get('/allUsers', isAuthenticated,getAllUsers);
 app.post('/user/delete/:id', deleteUser);
 app.post('/user/update/:id', updateUser);
 
-/!*doctors*!/
+/*doctors*/
 app.get('/addDoctor', isAuthenticated, addDoctorPage);
 app.post('/addDoctorForm',  addDoctorForm);
 app.get('/allDoctors', isAuthenticated, fetchDoctors);
 
-/!*setting*!/
+/*setting*/
 app.get('/addLoginImagePage', isAuthenticated, addLoginImagePage)
 app.post('/addImageForm', isAuthenticated, uploadLoginImage.single('image'), addImageForm)
 
@@ -146,10 +148,7 @@ app.post('/addLogoForm', isAuthenticated, uploadLoginLogo.single('image'), addLo
 app.get('/addFooterPage', isAuthenticated, addFooterPage)
 app.post('/addFooterForm', isAuthenticated, addFooterForm)
 
-app.listen('3400')
+//app.listen(3400);
 
-/!*const PORT = process.env.PORT || 8080; // 8080 is standard for GAE
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});*!/
-*/
+const PORT = process.env.PORT || 3400;
+app.listen(PORT, () => console.log("Server running on port " + PORT));
