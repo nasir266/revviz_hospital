@@ -1,0 +1,164 @@
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <%- include('includes/page_head.ejs')%>
+</head>
+<body>
+<aside class="sidebar">
+    <%- include('includes/navbar.ejs')%>
+</aside>
+
+<main class="dashboard-main">
+    <div class="navbar-header">
+        <%- include('includes/header.ejs')%>
+    </div>
+
+    <div class="dashboard-main-body">
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+            <h6 class="fw-semibold mb-0">Dashboard</h6>
+            <ul class="d-flex align-items-center gap-2">
+                <li class="fw-medium">
+                    <a href="" class="d-flex align-items-center gap-1 hover-text-primary">
+                        <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                        Dashboard
+                    </a>
+                </li>
+                <li>-</li>
+                <li class="fw-medium">User Type</li>
+            </ul>
+        </div>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Add User</h5>
+                    </div>
+                    <div class="card-body">
+                        <form class="row gy-3 needs-validation" method="POST" action="/user/add" novalidate>
+                            <% if (message && message.length > 0) { %>
+                                <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+                                    <div id="liveToast" class="toast show align-items-center text-bg-success border-0" role="alert">
+                                        <div class="d-flex">
+                                            <div class="toast-body">
+                                                <%= message[0] %>
+                                            </div>
+                                            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+
+                            <!-- Username -->
+                            <div class="col-md-4">
+                                <label class="form-label">Username</label>
+                                <input type="text" name="username" class="form-control" placeholder="Username" required>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-4">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="col-md-4">
+                                <label class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="col-md-4">
+                                <label class="form-label">Phone</label>
+                                <input type="text" name="phone" class="form-control" placeholder="Phone">
+                            </div>
+
+
+
+                            <!-- Status -->
+                                <div class="col-md-4">
+                                    <label class="form-label">User Type</label>
+                                    <select name="fk_type_id" id="fk_type_id" class="form-control" required>
+                                        <option value="">-- Select User Type --</option>
+                                        <% userType.forEach(type => { %>
+                                            <option value="<%= type.id %>"><%= type.name %></option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label">Organization</label>
+                                    <select name="fk_org_id" id="fk_org_id" class="form-control" required>
+                                        <option value="">-- Select Organization --</option>
+                                        <% orgList.forEach(org => { %>
+                                            <option value="<%= org.id %>"><%= org.username %></option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">Add User</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <form id="updateForm" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Symptom</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <input type="hidden" id="editId" name="id">
+
+                        <div class="mb-3">
+                            <label>Symptom Name</label>
+                            <input type="text" id="editName" name="name" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.editBtn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const id = this.dataset.id;
+                const name = this.dataset.name;
+
+                document.getElementById('editId').value = id;
+                document.getElementById('editName').value = name;
+
+                document.getElementById('updateForm').action = "/userType/update/" + id;
+            });
+        });
+    </script>
+
+
+    <%- include('includes/footer.ejs')%>
+
+
+
+</main>
+<%- include('includes/script.ejs')%>
+
+</body>
+</html>

@@ -20,7 +20,7 @@
             <h6 class="fw-semibold mb-0">Dashboard</h6>
             <ul class="d-flex align-items-center gap-2">
                 <li class="fw-medium">
-                    <a href="index.html" class="d-flex align-items-center gap-1 hover-text-primary">
+                    <a href="" class="d-flex align-items-center gap-1 hover-text-primary">
                         <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
                         Dashboard
                     </a>
@@ -35,15 +35,32 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0">Add Organization</h5>
+                        <h5 class="card-title mb-0">Add Organisation</h5>
                     </div>
                     <div class="card-body">
-                        <form class="row gy-3 needs-validation" method="post" action="addOrgForm" novalidate>
-                            <div class="col-md-6">
-                                <label class="form-label">Organization Name</label>
-                                <input type="text" name="org_name" id="org_name" class="form-control" placeholder="Organization Name" required>
+                        <% if (message && message.length > 0) { %>
+                            <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+                                <div id="liveToast" class="toast show align-items-center text-bg-success border-0" role="alert">
+                                    <div class="d-flex">
+                                        <div class="toast-body">
+                                            <%= message[0] %>
+                                        </div>
+                                        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                        <form class="row gy-3 needs-validation" method="post" action="addOrgForm" novalidate enctype="multipart/form-data">
+                            <div class="col-md-3">
+                                <label class="form-label">Organisation ID</label>
+                                <input type="text" name="org_id" id="org_id" class="form-control" placeholder="Organisation ID" required>
                             </div>
                             <div class="col-md-6">
+                                <label class="form-label">Organisation Name</label>
+                                <input type="text" name="org_name" id="org_name" class="form-control" placeholder="Organisation Name" required>
+                            </div>
+
+                            <div class="col-md-3">
                                 <label class="form-label">Logo </label>
                                 <input class="form-control" type="file" name="logo" id="logo" required>
                             </div>
@@ -52,17 +69,30 @@
                                 <input type="text" name="c_name" id="c_name" class="form-control" placeholder="Enter Customer" required>
                             </div>
                             <div class="col-md-3">
+                                <label class="form-label">Customer Email</label>
+                                <input type="email" name="c_email" id="c_email" class="form-control" placeholder="Customer Email" required>
+                            </div>
+                            <div class="col-md-3">
                                 <label class="form-label">Password</label>
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password" required>
                             </div>
                             <div class="col-md-3">
+                                <label class="form-label">Type</label>
+                                <select name="type" id="type" class="form-control" >
+                                    <option>select Type</option>
+                                    <option value="Hospital">Hospital</option>
+                                    <option value="Clinic">Clinic</option>
+                                    <option value="Pharmacy">Pharmacy</option>
+                                </select>
+                            </div>
+                            <!--<div class="col-md-3">
                                 <label class="form-label">Start Date</label>
                                 <input type="date" name="s_date" id="s_date" class="form-control" required>
                             </div>
                             <div class="col-md-3">
                                 <label class="form-label">Expire Date</label>
                                 <input type="date" name="exp_date" id="exp_date" class="form-control" required>
-                            </div>
+                            </div>-->
                             <h5 class="card-title mb-0">Other Detail</h5>
                             <div class="col-md-4">
                                 <label class="form-label">Hospital City</label>
@@ -76,7 +106,7 @@
                                 <label class="form-label">State</label>
                                 <input type="text" name="state" id="state" placeholder="State" class="form-control" required>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <label class="form-label">Hospital Mobile Number</label>
                                 <input type="text" name="mobile" id="mobile" placeholder="Hospital Mobile Number" class="form-control" required>
                             </div>
@@ -84,7 +114,7 @@
                                 <label class="form-label">Hospital Email</label>
                                 <input type="text" name="hos_email" id="hos_email" placeholder="Hospital Email" class="form-control" required>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <label class="form-label">Owner Name</label>
                                 <input type="text" name="owner_name" id="owner_name" placeholder="Owner Name" class="form-control" required>
                             </div>
@@ -92,16 +122,19 @@
                                 <label class="form-label">Owner Email </label>
                                 <input type="text" name="owner_email" id="owner_email" placeholder="Owner Email" class="form-control" required>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <label class="form-label">Owner Mobile Number</label>
                                 <input type="text" name="owner_number" id="owner_number" placeholder="Owner Mobile Number" class="form-control" required>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <label class="form-label">Specialities</label>
-                                <select class="form-control" name="special" id="special">
-                                    <option value="">Select Specialities</option>
+                                <select class="form-control " name="specialities" id="specialities" required>
+                                    <% specialities.forEach(s => { %>
+                                        <option value="<%= s.id %>"><%= s.name %></option>
+                                    <% }) %>
                                 </select>
                             </div>
+
                             <div class="col-md-5">
                                 <label class="form-label">Footer </label>
                                 <input type="text" name="footer" id="footer" placeholder="Footer" class="form-control" required>

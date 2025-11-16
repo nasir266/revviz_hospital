@@ -1,0 +1,244 @@
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <%- include('includes/page_head.ejs')%>
+</head>
+<body>
+<aside class="sidebar">
+    <%- include('includes/navbar.ejs')%>
+</aside>
+
+<main class="dashboard-main">
+    <div class="navbar-header">
+        <%- include('includes/header.ejs')%>
+    </div>
+
+    <div class="dashboard-main-body">
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+            <h6 class="fw-semibold mb-0">Dashboard</h6>
+            <ul class="d-flex align-items-center gap-2">
+                <li class="fw-medium">
+                    <a href="" class="d-flex align-items-center gap-1 hover-text-primary">
+                        <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                        Dashboard
+                    </a>
+                </li>
+                <li>-</li>
+                <li class="fw-medium">All Users</li>
+            </ul>
+        </div>
+        <div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <form id="editForm" method="POST">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Edit User</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+
+                            <input type="hidden" id="editId" name="id">
+
+                            <!-- Username -->
+                            <div class="mb-3">
+                                <label>Username</label>
+                                <input type="text" id="editUsername" name="username" class="form-control" required>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label>Email</label>
+                                <input type="email" id="editEmail" name="email" class="form-control" required>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="mb-3">
+                                <label>Phone</label>
+                                <input type="text" id="editPhone" name="phone" class="form-control">
+                            </div>
+
+
+                            <!-- User Type -->
+                            <div class="mb-3">
+                                <label>User Type</label>
+                                <select name="fk_type_id" id="editType" class="form-control">
+                                    <option value="">-- Select Type --</option>
+                                    <% userType.forEach(type => { %>
+                                        <option value="<%= type.id %>"><%= type.name %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+
+                            <!-- Organization -->
+                            <div class="mb-3">
+                                <label>Organization</label>
+                                <select name="fk_org_id" id="editOrg" class="form-control">
+                                    <option value="">-- Select Org --</option>
+                                    <% orgList.forEach(org => { %>
+                                        <option value="<%= org.id %>"><%= org.username %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Update User</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row gy-4">
+            <% if (message && message.length > 0) { %>
+                <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+                    <div id="liveToast" class="toast show align-items-center text-bg-success border-0" role="alert">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                <%= message[0] %>
+                            </div>
+                            <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast"></button>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">All Users</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table basic-border-table mb-0">
+                                <thead>
+                                <tr>
+                                <tr>
+
+                                    <th>Username</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>User Type</th>
+                                    <th>Organization</th>
+
+                                    <th>Actions</th>
+                                </tr>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% if (usersList && usersList.length > 0) { %>
+                                    <% usersList.forEach(user => { %>
+                                        <tr>
+                                            <td><%= user.username %></td>
+                                            <td><%= user.email %></td>
+                                            <td><%= user.phone %></td>
+                                            <td><%= user.userTypeName %></td>
+                                            <td><%= user.orgName %></td>
+                                            <td>
+                                                <!-- Edit and Delete buttons -->
+                                                <button class="btn btn-warning btn-sm editBtn"
+                                                        data-id="<%= user.id %>"
+                                                        data-username="<%= user.username %>"
+                                                        data-email="<%= user.email %>"
+                                                        data-phone="<%= user.phone %>"
+                                                        data-role="<%= user.role %>"
+                                                        data-status="<%= user.status %>"
+                                                        data-fk_type_id="<%= user.fk_type_id %>"
+                                                        data-fk_org_id="<%= user.fk_org_id %>"
+                                                        data-bs-toggle="modal" data-bs-target="#editModal">
+                                                    Edit
+                                                </button>
+                                                <button class="btn btn-danger btn-sm deleteBtn"
+                                                        data-id="<%= user.id %>"
+                                                        data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                    Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="9" class="text-center">No users found</td>
+                                    </tr>
+                                <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <form id="deleteForm" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Delete User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete <strong id="deleteUsername"></strong>?</p>
+                        <input type="hidden" id="deleteId" name="id">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.editBtn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const id = this.dataset.id;
+                    const username = this.dataset.username;
+                    const email = this.dataset.email;
+                    const phone = this.dataset.phone;
+                    const role = this.dataset.role;
+                    const status = this.dataset.status;
+                    const fk_type_id = this.dataset.fk_type_id;
+                    const fk_org_id = this.dataset.fk_org_id;
+
+                    document.getElementById('editId').value = id;
+                    document.getElementById('editUsername').value = username;
+                    document.getElementById('editEmail').value = email;
+                    document.getElementById('editPhone').value = phone;
+                    //document.getElementById('editRole').value = role;
+                    //document.getElementById('editStatus').value = status;
+                    document.getElementById('editType').value = fk_type_id;
+                    document.getElementById('editOrg').value = fk_org_id;
+
+                    document.getElementById('editForm').action = "/user/update/" + id;
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.querySelectorAll('.deleteBtn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const id = this.dataset.id;
+                const username = this.dataset.username;
+
+                document.getElementById('deleteId').value = id;
+                document.getElementById('deleteUsername').innerText = username;
+
+                document.getElementById('deleteForm').action = "/user/delete/" + id;
+            });
+        });
+    </script>
+
+    <%- include('includes/footer.ejs')%>
+</main>
+<%- include('includes/script.ejs')%>
+
+</body>
+</html>

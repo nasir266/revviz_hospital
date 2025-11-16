@@ -11,40 +11,164 @@
 </div>
 <div class="sidebar-menu-area">
     <ul class="sidebar-menu" id="sidebar-menu">
-        <li class="dropdown">
-            <a href="/">
-                <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
-                <span>Dashboard</span>
-            </a>
 
-        </li>
-        <li class="sidebar-menu-group-title">Application</li>
-        <li class="dropdown">
+        <% if (user) { %>
+
+        <%= console.log(user)%>
+            <% if (user && user.status === 2) { %>
+                <li class="dropdown">
+                    <a href="/">
+                        <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
+                        <span>Dashboard</span>
+                    </a>
+
+                </li>
+                <li class="sidebar-menu-group-title">Application</li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)">
+                        <iconify-icon icon="heroicons:document" class="menu-icon"></iconify-icon>
+                        <span>Organisation</span>
+                    </a>
+                    <ul class="sidebar-submenu" style="display: none;">
+                        <li>
+                            <a href="/add_organization"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Add New</a>
+                        </li>
+                        <li>
+                            <a href="/allOrganization"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> All Organisation</a>
+                        </li>
+                        <li>
+                            <a href="/activeOrganization"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Active</a>
+                        </li>
+                        <li>
+                            <a href="/unActiveOrganization"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Inactive/Expired </a>
+                        </li>
+
+
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)">
+                        <iconify-icon icon="heroicons:document" class="menu-icon"></iconify-icon>
+                        <span>User Management</span>
+                    </a>
+                    <ul class="sidebar-submenu" style="display: none;">
+                        <li>
+                            <a href="/userType"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> User Type</a>
+                        </li>
+                        <li>
+                            <a href="/addUser"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Add User</a>
+                        </li>
+                        <li>
+                            <a href="/allUsers"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> List User</a>
+                        </li>
+
+
+
+                    </ul>
+                </li>
+                <!--<li class="dropdown">
+                    <a href="javascript:void(0)">
+                        <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
+                        <span>Plans</span>
+                    </a>
+                    <ul class="sidebar-submenu" style="display: none;">
+                        <li>
+                            <a href="/addPlan"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Add Plan</a>
+                        </li>
+                        <li>
+                            <a href="/allPlans"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> All Plan</a>
+                        </li>
+                        <li>
+                            <a href="/assignPlan"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Assign Plan</a>
+                        </li>
+
+
+                    </ul>
+                </li>-->
+                <li class="dropdown">
+                    <a href="javascript:void(0)">
+                        <iconify-icon icon="icon-park-outline:setting-two" class="menu-icon"></iconify-icon>
+                        <span>OPD Settings</span>
+                    </a>
+                    <ul class="sidebar-submenu" style="display: none;">
+                        <li>
+                            <a href="/addDiagnosis"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Diagnosis</a>
+                        </li>
+                        <!--<li>
+                            <a href="/allDiagnosisPage"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> All Diagnosis</a>
+                        </li>-->
+                        <li>
+                            <a href="/addSymptoms"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Symptoms</a>
+                        </li>
+                        <li>
+                            <a href="/addSpeciality"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Speciality</a>
+                        </li>
+                        <!--<li>
+                            <a href="/allSymptoms"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> All Symptoms</a>
+                        </li>-->
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)">
+                        <iconify-icon icon="icon-park-outline:setting-two" class="menu-icon"></iconify-icon>
+                        <span>Settings</span>
+                    </a>
+                    <ul class="sidebar-submenu" style="display: none;">
+                        <li>
+                            <a href="/addLoginImagePage"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Add Image login </a>
+                        </li>
+                        <li>
+                            <a href="/addLoginLogoPage"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Add Logo login </a>
+                        </li>
+                        <li>
+                            <a href="/addFooterPage"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Add Footer </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+            <% } else{ %>
+                    <li class="dropdown">
+                        <a href="/h_index">
+                            <iconify-icon icon="solar:home-smile-angle-outline" class="menu-icon"></iconify-icon>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-group-title">Application</li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)">
+                            <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
+                            <span>Doctors</span>
+                        </a>
+                        <ul class="sidebar-submenu" style="display: none;">
+                            <li>
+                                <a href="/addDoctor"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Add Doctor</a>
+                            </li>
+                            <li>
+                                <a href="/allDoctors"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> All Doctor</a>
+                            </li>
+                        </ul>
+                    </li>
+
+            <% } %>
+
+        <% } %>
+
+       <!--<li class="dropdown">
             <a href="javascript:void(0)">
                 <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
-                <span>Organization</span>
+                <span>Symptoms</span>
             </a>
             <ul class="sidebar-submenu" style="display: none;">
                 <li>
-                    <a href="/add_organization"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Add Organization</a>
+                    <a href="/addSymptoms"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Add Symptom</a>
                 </li>
-
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a href="javascript:void(0)">
-                <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
-                <span>Users</span>
-            </a>
-            <ul class="sidebar-submenu" style="display: none;">
                 <li>
-                    <a href="/add_uses"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> Add Users</a>
+                    <a href="/allSymptoms"><i class="ri-circle-fill circle-icon text-primary-600 w-auto"></i> All Symptoms</a>
                 </li>
-
-
             </ul>
-        </li>
-        <li class="">
+        </li>-->
+        <!--<li class="">
             <a href="#">
                 <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
                 <span>Setting</span>
@@ -55,6 +179,6 @@
                 <iconify-icon icon="hugeicons:invoice-03" class="menu-icon"></iconify-icon>
                 <span>Plans</span>
             </a>
-        </li>
+        </li>-->
     </ul>
 </div>

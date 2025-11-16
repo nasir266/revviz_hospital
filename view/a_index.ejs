@@ -19,7 +19,7 @@
             <h6 class="fw-semibold mb-0">Super Admin Dashboard</h6>
             <ul class="d-flex align-items-center gap-2">
                 <li class="fw-medium">
-                    <a href="index.html" class="d-flex align-items-center gap-1 hover-text-primary">
+                    <a href="" class="d-flex align-items-center gap-1 hover-text-primary">
                         <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
                         Super Admin Dashboard
                     </a>
@@ -37,14 +37,13 @@
                         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
                             <div>
                                 <p class="fw-medium text-primary-light mb-1">Total Users</p>
-                                <h6 class="mb-0">000</h6>
+                                <h6 class="mb-0"><%= total_users%></h6>
                             </div>
                             <div class="w-50-px h-50-px bg-cyan rounded-circle d-flex justify-content-center align-items-center">
                                 <iconify-icon icon="gridicons:multiple-users" class="text-white text-2xl mb-0"></iconify-icon>
                             </div>
                         </div>
                         <p class="fw-medium text-sm text-primary-light mt-12 mb-0 d-flex align-items-center gap-2">
-                            <span class="d-inline-flex align-items-center gap-1 text-success-main"><iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon> +000</span>
                             Last 30 days
                         </p>
                     </div>
@@ -56,14 +55,13 @@
                         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
                             <div>
                                 <p class="fw-medium text-primary-light mb-1">Active Users</p>
-                                <h6 class="mb-0">000</h6>
+                                <h6 class="mb-0"><%= active_users%></h6>
                             </div>
-                            <div class="w-50-px h-50-px bg-purple rounded-circle d-flex justify-content-center align-items-center">
-                                <iconify-icon icon="fa-solid:award" class="text-white text-2xl mb-0"></iconify-icon>
+                            <div class="w-50-px h-50-px bg-info rounded-circle d-flex justify-content-center align-items-center">
+                                <iconify-icon icon="fluent:people-20-filled" class="text-white text-2xl mb-0"></iconify-icon>
                             </div>
                         </div>
                         <p class="fw-medium text-sm text-primary-light mt-12 mb-0 d-flex align-items-center gap-2">
-                            <span class="d-inline-flex align-items-center gap-1 text-danger-main"><iconify-icon icon="bxs:down-arrow" class="text-xs"></iconify-icon> -000</span>
                             Last 30 days
                         </p>
                     </div>
@@ -75,14 +73,13 @@
                         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
                             <div>
                                 <p class="fw-medium text-primary-light mb-1">Inactive Users</p>
-                                <h6 class="mb-0">000</h6>
+                                <h6 class="mb-0"><%= inactive_users%></h6>
                             </div>
                             <div class="w-50-px h-50-px bg-info rounded-circle d-flex justify-content-center align-items-center">
                                 <iconify-icon icon="fluent:people-20-filled" class="text-white text-2xl mb-0"></iconify-icon>
                             </div>
                         </div>
                         <p class="fw-medium text-sm text-primary-light mt-12 mb-0 d-flex align-items-center gap-2">
-                            <span class="d-inline-flex align-items-center gap-1 text-success-main"><iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon> +000</span>
                             Last 30 days
                         </p>
                     </div>
@@ -94,14 +91,13 @@
                         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
                             <div>
                                 <p class="fw-medium text-primary-light mb-1">Total Income</p>
-                                <h6 class="mb-0">₹000</h6>
+                                <h6 class="mb-0">₹0</h6>
                             </div>
                             <div class="w-50-px h-50-px bg-success-main rounded-circle d-flex justify-content-center align-items-center">
                                 <iconify-icon icon="solar:wallet-bold" class="text-white text-2xl mb-0"></iconify-icon>
                             </div>
                         </div>
                         <p class="fw-medium text-sm text-primary-light mt-12 mb-0 d-flex align-items-center gap-2">
-                            <span class="d-inline-flex align-items-center gap-1 text-success-main"><iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon> +000</span>
                             Last 30 days
                         </p>
                     </div>
@@ -113,14 +109,13 @@
                         <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
                             <div>
                                 <p class="fw-medium text-primary-light mb-1">Total Expense</p>
-                                <h6 class="mb-0">₹000</h6>
+                                <h6 class="mb-0">₹0</h6>
                             </div>
                             <div class="w-50-px h-50-px bg-red rounded-circle d-flex justify-content-center align-items-center">
                                 <iconify-icon icon="fa6-solid:file-invoice-dollar" class="text-white text-2xl mb-0"></iconify-icon>
                             </div>
                         </div>
                         <p class="fw-medium text-sm text-primary-light mt-12 mb-0 d-flex align-items-center gap-2">
-                            <span class="d-inline-flex align-items-center gap-1 text-success-main"><iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon> +000</span>
                             Last 30 days
                         </p>
                     </div>
@@ -144,11 +139,11 @@
                             </select>
                         </div>
                         <div class="d-flex flex-wrap align-items-center gap-2 mt-8">
-                            <h6 class="mb-0">₹000</h6>
+                            <h6 class="mb-0">₹0</h6>
                             <span class="text-sm fw-semibold rounded-pill bg-success-focus text-success-main border br-success px-8 py-4 line-height-1 d-flex align-items-center gap-1">
                 0% <iconify-icon icon="bxs:up-arrow" class="text-xs"></iconify-icon>
               </span>
-                            <span class="text-xs fw-medium">+ ₹000 Per Day</span>
+                            <span class="text-xs fw-medium">+ ₹0 Per Day</span>
                         </div>
                         <div id="chart" class="pt-28 apexcharts-tooltip-style-1"></div>
                     </div>
@@ -159,14 +154,14 @@
                 <div class="card h-100 radius-8 border-0 overflow-hidden">
                     <div class="card-body p-24">
                         <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
-                            <h6 class="mb-2 fw-bold text-lg">Users Overview</h6>
+                            <h6 class="mb-2 fw-bold text-lg">Organization </h6>
                             <div class="">
-                                <select class="form-select form-select-sm w-auto bg-base border text-secondary-light radius-8">
+                               <!-- <select class="form-select form-select-sm w-auto bg-base border text-secondary-light radius-8">
                                     <option>Today</option>
                                     <option>Weekly</option>
                                     <option>Monthly</option>
                                     <option>Yearly</option>
-                                </select>
+                                </select>-->
                             </div>
                         </div>
 
@@ -200,13 +195,11 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link d-flex align-items-center active" id="pills-to-do-list-tab" data-bs-toggle="pill" data-bs-target="#pills-to-do-list" type="button" role="tab" aria-controls="pills-to-do-list" aria-selected="true">
                                         Latest Registered
-                                        <span class="text-sm fw-semibold py-6 px-12 bg-neutral-500 rounded-pill text-white line-height-1 ms-12 notification-alert">35</span>
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link d-flex align-items-center" id="pills-recent-leads-tab" data-bs-toggle="pill" data-bs-target="#pills-recent-leads" type="button" role="tab" aria-controls="pills-recent-leads" aria-selected="false" tabindex="-1">
-                                        Inactive Users
-                                        <span class="text-sm fw-semibold py-6 px-12 bg-neutral-500 rounded-pill text-white line-height-1 ms-12 notification-alert">35</span>
+                                        Active Users
                                     </button>
                                 </li>
                             </ul>
@@ -223,92 +216,29 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">Users </th>
-                                            <th scope="col">Registered On</th>
-                                            <th scope="col">Plan</th>
-                                            <th scope="col" class="text-center">Status</th>
+                                            <th scope="col">Phone</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-md mb-0 fw-medium">Deepak Kamal</h6>
-                                                        <span class="text-sm text-secondary-light fw-medium">Deepak@gmail.com</span>
+                                        <% if (recentUsers.length === 0) { %>
+                                            <tr><td colspan="5">No recent users found.</td></tr>
+                                        <% } else { %>
+                                        <% recentUsers.forEach(user => { %>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="flex-grow-1">
+                                                            <h6 class="text-md mb-0 fw-medium"><%= user.username %></h6>
+                                                            <span class="text-sm text-secondary-light fw-medium"><%= user.email %></span>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                            <td>27 Mar 2025</td>
-                                            <td>Free</td>
-                                            <td class="text-center">
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-md mb-0 fw-medium">Deepak Kamal</h6>
-                                                        <span class="text-sm text-secondary-light fw-medium">Deepak@gmail.com</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>27 Mar 2025</td>
-                                            <td>Free</td>
-                                            <td class="text-center">
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-md mb-0 fw-medium">Deepak Kamal</h6>
-                                                        <span class="text-sm text-secondary-light fw-medium">Deepak@gmail.com</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>27 Mar 2025</td>
-                                            <td>Free</td>
-                                            <td class="text-center">
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-md mb-0 fw-medium">Deepak Kamal</h6>
-                                                        <span class="text-sm text-secondary-light fw-medium">Deepak@gmail.com</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>27 Mar 2025</td>
-                                            <td>Free</td>
-                                            <td class="text-center">
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-md mb-0 fw-medium">Deepak Kamal</h6>
-                                                        <span class="text-sm text-secondary-light fw-medium">Deepak@gmail.com</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>27 Mar 2025</td>
-                                            <td>Free</td>
-                                            <td class="text-center">
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                                            </td>
-                                        </tr>
+                                                </td>
+                                                <td><%= user.mobile || 'N/A' %></td>
+                                            </tr>
+                                            <% }) %>
+                                        <% } %>
+
+
 
                                         </tbody>
                                     </table>
@@ -320,92 +250,30 @@
                                         <thead>
                                         <tr>
                                             <th scope="col">Users </th>
-                                            <th scope="col">Registered On</th>
-                                            <th scope="col">Plan</th>
-                                            <th scope="col" class="text-center">Status</th>
+                                            <th scope="col">Phone</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-md mb-0 fw-medium">Dianne Russell</h6>
-                                                        <span class="text-sm text-secondary-light fw-medium">redaniel@gmail.com</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>27 Mar 2024</td>
-                                            <td>Free</td>
-                                            <td class="text-center">
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/users/user2.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-md mb-0 fw-medium">Wade Warren</h6>
-                                                        <span class="text-sm text-secondary-light fw-medium">xterris@gmail.com</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>27 Mar 2024</td>
-                                            <td>Basic</td>
-                                            <td class="text-center">
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/users/user3.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-md mb-0 fw-medium">Albert Flores</h6>
-                                                        <span class="text-sm text-secondary-light fw-medium">seannand@mail.ru</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>27 Mar 2024</td>
-                                            <td>Standard</td>
-                                            <td class="text-center">
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/users/user4.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-md mb-0 fw-medium">Bessie Cooper </h6>
-                                                        <span class="text-sm text-secondary-light fw-medium">igerrin@gmail.com</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>27 Mar 2024</td>
-                                            <td>Business</td>
-                                            <td class="text-center">
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex align-items-center">
-                                                    <img src="assets/images/users/user5.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                                    <div class="flex-grow-1">
-                                                        <h6 class="text-md mb-0 fw-medium">Arlene McCoy</h6>
-                                                        <span class="text-sm text-secondary-light fw-medium">fellora@mail.ru</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>27 Mar 2024</td>
-                                            <td>Enterprise </td>
-                                            <td class="text-center">
-                                                <span class="bg-success-focus text-success-main px-24 py-4 rounded-pill fw-medium text-sm">Active</span>
-                                            </td>
-                                        </tr>
+                                        <% if (activeUsers.length === 0) { %>
+                                            <tr><td colspan="5">No recent users found.</td></tr>
+                                        <% } else { %>
+                                            <% activeUsers.forEach(user => { %>
+                                                <tr>
+                                                    <td>
+                                                        <div class="d-flex align-items-center">
+                                                            <div class="flex-grow-1">
+                                                                <h6 class="text-md mb-0 fw-medium"> <%= user.username %></h6>
+                                                                <span class="text-sm text-secondary-light fw-medium"><%= user.email %></span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td><%= user.mobile || 'N/A' %></td>
+                                                </tr>
+                                            <% }) %>
+                                        <% } %>
+
+
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -418,7 +286,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <div class="d-flex align-items-center flex-wrap gap-2 justify-content-between">
-                            <h6 class="mb-2 fw-bold text-lg mb-0">Top Users</h6>
+                            <h6 class="mb-2 fw-bold text-lg mb-0">Recent Packages</h6>
                             <a href="javascript:void(0)" class="text-primary-600 hover-text-primary d-flex align-items-center gap-1">
                                 View All
                                 <iconify-icon icon="solar:alt-arrow-right-linear" class="icon"></iconify-icon>
@@ -426,67 +294,24 @@
                         </div>
 
                         <div class="mt-32">
+                            <% if (plans.length > 0) { %>
 
-                            <div class="d-flex align-items-center justify-content-between gap-3 mb-24">
-                                <div class="d-flex align-items-center">
-                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                    <div class="flex-grow-1">
-                                        <h6 class="text-md mb-0 fw-medium">Harsha </h6>
-                                        <span class="text-sm text-secondary-light fw-medium">user ID: 00000</span>
+                                <% plans.forEach(plan => { %>
+                                    <div class="d-flex align-items-center justify-content-between gap-3 mb-24">
+                                        <div class="d-flex align-items-center">
+                                            <div class="flex-grow-1">
+                                                <h6 class="text-md mb-0 fw-medium"><%= plan.user_name %> </h6>
+
+                                                <span class="text-sm text-secondary-light fw-medium"> <%= new Date(plan.start_date).toISOString().split("T")[0] %> </span>
+                                            </div>
+                                        </div>
+                                        <span class="text-primary-light text-md fw-medium"><%= plan.amount %></span>
                                     </div>
-                                </div>
-                                <span class="text-primary-light text-md fw-medium">₹00</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between gap-3 mb-24">
-                                <div class="d-flex align-items-center">
-                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                    <div class="flex-grow-1">
-                                        <h6 class="text-md mb-0 fw-medium">Harsha </h6>
-                                        <span class="text-sm text-secondary-light fw-medium">user ID: 00000</span>
-                                    </div>
-                                </div>
-                                <span class="text-primary-light text-md fw-medium">₹00</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between gap-3 mb-24">
-                                <div class="d-flex align-items-center">
-                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                    <div class="flex-grow-1">
-                                        <h6 class="text-md mb-0 fw-medium">Harsha </h6>
-                                        <span class="text-sm text-secondary-light fw-medium">user ID: 00000</span>
-                                    </div>
-                                </div>
-                                <span class="text-primary-light text-md fw-medium">₹00</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between gap-3 mb-24">
-                                <div class="d-flex align-items-center">
-                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                    <div class="flex-grow-1">
-                                        <h6 class="text-md mb-0 fw-medium">Harsha </h6>
-                                        <span class="text-sm text-secondary-light fw-medium">user ID: 00000</span>
-                                    </div>
-                                </div>
-                                <span class="text-primary-light text-md fw-medium">₹00</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between gap-3 mb-24">
-                                <div class="d-flex align-items-center">
-                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                    <div class="flex-grow-1">
-                                        <h6 class="text-md mb-0 fw-medium">Harsha </h6>
-                                        <span class="text-sm text-secondary-light fw-medium">user ID: 00000</span>
-                                    </div>
-                                </div>
-                                <span class="text-primary-light text-md fw-medium">₹00</span>
-                            </div>
-                            <div class="d-flex align-items-center justify-content-between gap-3 mb-24">
-                                <div class="d-flex align-items-center">
-                                    <img src="assets/images/users/user1.png" alt="" class="w-40-px h-40-px rounded-circle flex-shrink-0 me-12 overflow-hidden">
-                                    <div class="flex-grow-1">
-                                        <h6 class="text-md mb-0 fw-medium">Harsha </h6>
-                                        <span class="text-sm text-secondary-light fw-medium">user ID: 00000</span>
-                                    </div>
-                                </div>
-                                <span class="text-primary-light text-md fw-medium">₹00</span>
-                            </div>
+
+                                <% }) %>
+                                <% } %>
+
+
 
 
 

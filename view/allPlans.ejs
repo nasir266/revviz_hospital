@@ -31,43 +31,38 @@
         </div>
 
         <div class="row gy-4">
+            <% if (plans.length > 0) { %>
+            <% plans.forEach((plan, index) => { %>
 
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">All Diagnosis</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table basic-border-table mb-0">
-                                <thead>
-                                <tr>
-                                    <th>Sr# </th>
-                                    <th>Name</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <% if (diagnosisList && diagnosisList.length > 0) { %>
-                                    <% let no = 1; %>
-                                    <% diagnosisList.forEach((d) => { %>
-                                        <tr>
-                                            <td><%= no++ %></td>
-                                            <td><%= d.name %></td>
-                                            <td><a href="" class="btn btn-danger btn-xs ">Delete</a></td>
-                                        </tr>
-                                    <% }) %>
-                                <% } else { %>
-                                    <tr>
-                                        <td colspan="3" class="text-center text-muted">No diagnosis records found</td>
-                                    </tr>
-                                <% } %>
-                                </tbody>
-                            </table>
+                    <% let bgClass = (index % 2 === 0) ? 'bg-lilac-100' : 'bg-success-100';
+                        let durationText = '';
+                        if (plan.duration >= 365) {
+                            durationText = (plan.duration / 365) + ' Year';
+                        } else if (plan.duration >= 30) {
+                            durationText = (plan.duration / 30) + ' Month';
+                        } else {
+                            durationText = plan.duration + ' Day';
+                        }
+
+                    %>
+            <div class="col-xxl-3 col-sm-6 pricing-plan-wrapper mx-8">
+                <div class="pricing-plan position-relative radius-24 overflow-hidden border <%= bgClass %> ">
+                    <div class="d-flex align-items-center gap-16">
+                                                <span class="w-72-px h-72-px d-flex justify-content-center align-items-center radius-16 bg-base">
+                                                    <img src="assets/images/pricing/price-icon1.png" alt="">
+                                                </span>
+                        <div class="">
+                            <h6 class="mb-0"><%= plan.name %></h6>
                         </div>
                     </div>
+                    <h3 class="mb-24"><%= plan.price %> <span class="fw-medium text-md text-secondary-light"><%=durationText%></span> </h3>
                 </div>
             </div>
+
+                <% }) %>
+            <% } else { %>
+                <tr><td colspan="5">No plans found.</td></tr>
+            <% } %>
 
 
         </div>

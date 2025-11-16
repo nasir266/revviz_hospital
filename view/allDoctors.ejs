@@ -1,0 +1,95 @@
+<!-- meta tags and other links -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <%- include('includes/page_head.ejs')%>
+</head>
+<body>
+<aside class="sidebar">
+    <%- include('includes/navbar.ejs')%>
+</aside>
+
+<main class="dashboard-main">
+    <div class="navbar-header">
+        <%- include('includes/header.ejs')%>
+    </div>
+
+    <div class="dashboard-main-body">
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-24">
+            <h6 class="fw-semibold mb-0">Dashboard</h6>
+            <ul class="d-flex align-items-center gap-2">
+                <li class="fw-medium">
+                    <a href="" class="d-flex align-items-center gap-1 hover-text-primary">
+                        <iconify-icon icon="solar:home-smile-angle-outline" class="icon text-lg"></iconify-icon>
+                        Dashboard
+                    </a>
+                </li>
+                <li>-</li>
+                <li class="fw-medium">Diagnosis</li>
+            </ul>
+        </div>
+
+        <div class="row gy-4">
+
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">All Diagnosis</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table basic-border-table mb-0">
+                                <thead>
+                                <tr>
+                                    <th>Sr#</th>
+                                    <th>Username</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Specialization</th>
+                                    <th>Degree</th>
+                                    <th>Experience</th>
+                                    <th>Timing</th>
+                                    <th>City</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <% if (doctors && doctors.length > 0) { %>
+                                    <% doctors.forEach((doctor, index) => { %>
+                                        <tr class="<%= index % 2 === 0 ? 'bg-light' : '' %>">
+                                            <td><%= ++index %></td>
+                                            <td><%= doctor.username %></td>
+                                            <td><%= doctor.full_name %></td>
+                                            <td><%= doctor.email %></td>
+                                            <td><%= doctor.phone %></td>
+                                            <td><%= doctor.specialization %></td>
+                                            <td><%= doctor.degree %></td>
+                                            <td><%= doctor.experience %></td>
+                                            <td><%= doctor.timing %></td>
+                                            <td><%= doctor.city %></td>
+                                            <td><%= doctor.doctor_status === 1 ? 'Active' : 'Inactive' %></td>
+                                        </tr>
+                                    <% }) %>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="10" class="text-center text-muted">No diagnosis records found</td>
+                                    </tr>
+                                <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <%- include('includes/footer.ejs')%>
+</main>
+<%- include('includes/script.ejs')%>
+
+</body>
+</html>

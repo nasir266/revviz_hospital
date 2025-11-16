@@ -1,0 +1,10 @@
+runtime: nodejs20
+
+env_variables:
+  DB_USER: myuser
+  DB_PASS: "mypassword123"
+  DB_NAME: hospital
+  INSTANCE_CONNECTION_NAME: crafty-academy-478213-n9:asia-south1:crafty-academy-478213-n9
+
+beta_settings:
+  cloud_sql_instances: crafty-academy-478213-n9:asia-south1:crafty-academy-478213-n9
